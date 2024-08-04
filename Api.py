@@ -42,6 +42,15 @@ def inscricoes():
 
     return jsonify({'message': 'Dados Salvos com Sucesso'}), 200
 
+@app.route('/emac/lista', methods=['GET'])
+def listar():{
+
+
+}
+
+def remover():{
+
+}
 
 
 
