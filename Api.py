@@ -16,7 +16,6 @@ app = Flask(__name__)
 CORS(app)
 # ENDPOINTS GERAIS
 @app.route('/emac/inscricoes', methods=['POST'])
-
 def inscricoes():
     data = request.get_json()
     if not data:
@@ -43,16 +42,12 @@ def inscricoes():
     return jsonify({'message': 'Dados Salvos com Sucesso'}), 200
 
 @app.route('/emac/lista', methods=['GET'])
-def listar():{
-
-
-}
-
-def remover():{
-
-}
-
-
+def listar():
+    try:
+        inscricoes = list(collection.find({}, {'_id': 0}))
+        return jsonify(inscricoes), 200
+    except Exception as e:
+        return jsonify({'message': 'Erro ao listar inscrições', 'error': str(e)}), 500
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
