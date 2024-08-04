@@ -1,0 +1,9 @@
+# Railway.toml
+[service]
+name = "EMACService"
+
+[build]
+builder = "paketobuildpacks/builder:base"
+
+[deploy]
+start = "python Api.py"
